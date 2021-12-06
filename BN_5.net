@@ -1,0 +1,223 @@
+net
+{
+	rcenginegenerator1317510038576835557L = "edu.ucla.belief.inference.RCSettings@190dbfc";
+}
+
+node Pressures
+{
+	states = ("False" "True" );
+	position = (86 -138);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "PS";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Isolation1
+{
+	states = ("False" "True" );
+	position = (254 3);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "I1";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Pressure2
+{
+	states = ("False" "True" );
+	position = (117 -2);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "P2";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Temperature
+{
+	states = ("False" "True" );
+	position = (192 -142);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "TS";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Solenoid1
+{
+	states = ("False" "True" );
+	position = (372 6);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "S1";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Pressure1
+{
+	states = ("False" "True" );
+	position = (11 -4);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "P1";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Valve2
+{
+	states = ("False" "True" );
+	position = (558 -96);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "V2";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Valves
+{
+	states = ("False" "True" );
+	position = (483 -201);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "VS";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Sensors
+{
+	states = ("False" "True" );
+	position = (148 -279);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "SS";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node SafetyFunction
+{
+	states = ("False" "True" );
+	position = (321 -343);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "SF";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node LogicSolver
+{
+	states = ("False" "True" );
+	position = (324 -199);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "LS";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Solenoid2
+{
+	states = ("False" "True" );
+	position = (599 -6);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "S2";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Valve1
+{
+	states = ("False" "True" );
+	position = (356 -87);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "V1";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Isolation2
+{
+	states = ("False" "True" );
+	position = (499 -12);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	label = "I2";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+potential ( Pressures | Pressure1 Pressure2 )
+{
+	data = (((	1.0	0.0	)
+		(	1.0	0.0	))
+		((	1.0	0.0	)
+		(	0.0	1.0	)));
+}
+potential ( Isolation1 | )
+{
+	data = (	0.99	0.01	);
+}
+potential ( Pressure2 | )
+{
+	data = (	0.99	0.01	);
+}
+potential ( Temperature | )
+{
+	data = (	0.99	0.01	);
+}
+potential ( Solenoid1 | )
+{
+	data = (	0.99	0.01	);
+}
+potential ( Pressure1 | )
+{
+	data = (	0.99	0.01	);
+}
+potential ( Valve2 | Isolation2 Solenoid2 )
+{
+	data = (((	1.0	0.0	)
+		(	0.0	1.0	))
+		((	0.0	1.0	)
+		(	0.0	1.0	)));
+}
+potential ( Valves | Valve1 Valve2 )
+{
+	data = (((	1.0	0.0	)
+		(	1.0	0.0	))
+		((	1.0	0.0	)
+		(	0.0	1.0	)));
+}
+potential ( Sensors | Temperature Pressures )
+{
+	data = (((	1.0	0.0	)
+		(	1.0	0.0	))
+		((	1.0	0.0	)
+		(	0.0	1.0	)));
+}
+potential ( SafetyFunction | Sensors LogicSolver Valves )
+{
+	data = ((((	1.0	0.0	)
+		(	0.0	1.0	))
+		((	0.0	1.0	)
+		(	0.0	1.0	)))
+		(((	0.0	1.0	)
+		(	0.0	1.0	))
+		((	0.0	1.0	)
+		(	0.0	1.0	))));
+}
+potential ( LogicSolver | )
+{
+	data = (	0.99995	5.0E-5	);
+}
+potential ( Solenoid2 | )
+{
+	data = (	0.99	0.01	);
+}
+potential ( Valve1 | Isolation1 Solenoid1 )
+{
+	data = (((	1.0	0.0	)
+		(	0.0	1.0	))
+		((	0.0	1.0	)
+		(	0.0	1.0	)));
+}
+potential ( Isolation2 | )
+{
+	data = (	0.99	0.01	);
+}

@@ -1,0 +1,93 @@
+net
+{
+	rcenginegenerator1317510038576835557L = "edu.ucla.belief.inference.RCSettings@3ebbbd9e";
+}
+
+node Globe
+{
+	states = ("False" "True" );
+	position = (184 -205);
+	ismapvariable = "false";
+	label = "G";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Air_supply_1
+{
+	states = ("False" "True" );
+	position = (244 -131);
+	ismapvariable = "false";
+	label = "A1";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Valve
+{
+	states = ("False" "True" );
+	position = (185 -306);
+	ismapvariable = "false";
+	label = "V";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Air_supply_2
+{
+	states = ("False" "True" );
+	position = (360 -134);
+	ismapvariable = "false";
+	label = "A2";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Solenoid
+{
+	states = ("False" "True" );
+	position = (68 -203);
+	ismapvariable = "false";
+	label = "S";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Air_supply
+{
+	states = ("False" "True" );
+	position = (290 -205);
+	ismapvariable = "false";
+	label = "AS";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+potential ( Globe | )
+{
+	data = (	0.98	0.02	);
+}
+potential ( Air_supply_1 | )
+{
+	data = (	0.8	0.2	);
+}
+potential ( Valve | Solenoid Globe Air_supply )
+{
+	data = ((((	1.0	0.0	)
+		(	0.0	1.0	))
+		((	0.0	1.0	)
+		(	0.0	1.0	)))
+		(((	0.0	1.0	)
+		(	0.0	1.0	))
+		((	0.0	1.0	)
+		(	0.0	1.0	))));
+}
+potential ( Air_supply_2 | )
+{
+	data = (	0.8	0.2	);
+}
+potential ( Solenoid | )
+{
+	data = (	0.98	0.02	);
+}
+potential ( Air_supply | Air_supply_1 Air_supply_2 )
+{
+	data = (((	1.0	0.0	)
+		(	1.0	0.0	))
+		((	1.0	0.0	)
+		(	0.0	1.0	)));
+}

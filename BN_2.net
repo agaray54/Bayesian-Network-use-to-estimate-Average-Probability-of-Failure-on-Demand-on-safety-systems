@@ -1,0 +1,47 @@
+net
+{
+	rcenginegenerator1317510038576835557L = "edu.ucla.belief.inference.RCSettings@647da393";
+}
+
+node Air_supply_2
+{
+	states = ("False" "True" );
+	position = (203 -8);
+	ismapvariable = "false";
+	label = "A2";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Air_supply_1
+{
+	states = ("False" "True" );
+	position = (87 -6);
+	ismapvariable = "false";
+	label = "A1";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Ins_Air_Supply
+{
+	states = ("False" "True" );
+	position = (150 -96);
+	ismapvariable = "false";
+	label = "AS";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+potential ( Air_supply_2 | )
+{
+	data = (	0.8	0.2	);
+}
+potential ( Air_supply_1 | )
+{
+	data = (	0.8	0.2	);
+}
+potential ( Ins_Air_Supply | Air_supply_1 Air_supply_2 )
+{
+	data = (((	1.0	0.0	)
+		(	1.0	0.0	))
+		((	1.0	0.0	)
+		(	0.0	1.0	)));
+}

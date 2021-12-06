@@ -1,0 +1,63 @@
+net
+{
+}
+
+node Globe
+{
+	states = ("False" "True" );
+	position = (216 -19);
+	ismapvariable = "false";
+	label = "G";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Valve
+{
+	states = ("False" "True" );
+	position = (217 -121);
+	ismapvariable = "false";
+	label = "V";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Solenoid
+{
+	states = ("False" "True" );
+	position = (100 -17);
+	ismapvariable = "false";
+	label = "S";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Air_supply
+{
+	states = ("False" "True" );
+	position = (311 -18);
+	ismapvariable = "false";
+	label = "AS";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+potential ( Globe | )
+{
+	data = (	0.98	0.02	);
+}
+potential ( Valve | Solenoid Globe Air_supply )
+{
+	data = ((((	1.0	0.0	)
+		(	0.0	1.0	))
+		((	0.0	1.0	)
+		(	0.0	1.0	)))
+		(((	0.0	1.0	)
+		(	0.0	1.0	))
+		((	0.0	1.0	)
+		(	0.0	1.0	))));
+}
+potential ( Solenoid | )
+{
+	data = (	0.98	0.02	);
+}
+potential ( Air_supply | )
+{
+	data = (	0.8	0.2	);
+}

@@ -1,0 +1,47 @@
+net
+{
+	rcenginegenerator1317510038576835557L = "edu.ucla.belief.inference.RCSettings@37c217d2";
+}
+
+node Globe
+{
+	states = ("False" "True" );
+	position = (156 -57);
+	ismapvariable = "false";
+	label = "G";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Solenoid
+{
+	states = ("False" "True" );
+	position = (40 -55);
+	ismapvariable = "false";
+	label = "S";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node Valve
+{
+	states = ("False" "True" );
+	position = (103 -146);
+	ismapvariable = "false";
+	label = "V";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+potential ( Globe | )
+{
+	data = (	0.98	0.02	);
+}
+potential ( Solenoid | )
+{
+	data = (	0.98	0.02	);
+}
+potential ( Valve | Solenoid Globe )
+{
+	data = (((	1.0	0.0	)
+		(	0.0	1.0	))
+		((	0.0	1.0	)
+		(	0.0	1.0	)));
+}
